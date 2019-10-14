@@ -41,6 +41,8 @@ call plug#begin('~/.vim/plugged')
 	let g:ale_linters = {
 	\ 'cs': ['OmniSharp']
 	\}
+	Plug('jkramer/vim-checkbox')
+	let g:checkbox_states = [' ', '-', 'x']
 call plug#end()
 set backupdir=~/.vim/backups
 set directory=~/.vim/backups
