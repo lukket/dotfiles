@@ -1,11 +1,10 @@
-let $LANG='en_US'
-set  number relativenumber
-set nowrap
 syntax enable
-" Enable file type detection and load pluging and indent files 
+" Enable file type detection and load pluging and indent files
 " depending on the file type
 " (this is required by many plugins)
 filetype plugin indent on
+set number relativenumber
+set nowrap
 set wildmenu
 set wildmode=list:longest,full
 set encoding=utf-8  " The encoding displayed.
@@ -16,10 +15,16 @@ set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching, but do it smart
 set incsearch " Search while typing
 set backspace=2
+set backupdir=~/.vim/backups
+set directory=~/.vim/backups
+set background=dark
+
 let mapleader=" "
+let $LANG='en_US'
+
 " Automatically change the current directory
 autocmd BufEnter * silent! lcd %:p:h
-" Plugins
+
 call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 	map <C-n> :NERDTreeToggle<CR>
@@ -44,13 +49,19 @@ call plug#begin('~/.vim/plugged')
 	Plug('jkramer/vim-checkbox')
 	let g:checkbox_states = [' ', '-', 'x']
 call plug#end()
-set backupdir=~/.vim/backups
-set directory=~/.vim/backups
-set background=dark
+
 colorscheme gruvbox
+
 " Xaml
 au BufNewFile,BufRead *.xaml        setf xml
-" Save files
+
+nnoremap <space> <nop>
 nnoremap <leader>s :w<cr>
+nnoremap <leader>- ddp
+nnoremap <leader>_ ddkP
+nnoremap <leader>sv :so $MYVIMRC<cr>
+nnoremap <leader>ev :e $MYVIMRC<cr>
 " Press F5 to delete all trailing whitespace
-:nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+
+inoremap jk <esc>
