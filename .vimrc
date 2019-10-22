@@ -79,7 +79,7 @@ augroup END
 
 augroup filetype_vue
     autocmd!
-    autocmd BufNewFile,BufRead *.vue        setf html
+    autocmd BufNewFile,BufRead *.vue setf html
     autocmd FileType javascript setlocal tabstop=2
     autocmd FileType javascript setlocal shiftwidth=2
     autocmd FileType javascript setlocal expandtab
@@ -87,5 +87,16 @@ augroup END
 
 augroup filetype_xaml
     autocmd!
-    autocmd BufNewFile,BufRead *.xaml        setf xml
+    autocmd BufNewFile,BufRead *.xaml setf xml
+augroup END
+
+augroup filetype_gitcommit
+    autocmd!
+    autocmd FileType gitcommit setlocal spell
+augroup END
+
+augroup filetype_notes
+    autocmd!
+    autocmd BufNewFile,BufRead notes.md setlocal spell
+    autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
 augroup END
