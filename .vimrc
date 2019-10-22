@@ -102,3 +102,8 @@ augroup filetype_notes
 	autocmd BufNewFile,BufRead notes.md setlocal spell
 	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
 augroup END
+
+augroup filetype_changelog
+	autocmd!
+	autocmd BufNewFile,BufRead CHANGELOG.md setlocal spell
+augroup END
