@@ -64,39 +64,39 @@ nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :noh
 inoremap jk <esc>
 
 augroup filetype_javascript
-    autocmd!
-    autocmd FileType javascript setlocal tabstop=2
-    autocmd FileType javascript setlocal shiftwidth=2
-    autocmd FileType javascript setlocal expandtab
+	autocmd!
+	autocmd FileType javascript setlocal tabstop=2
+	autocmd FileType javascript setlocal shiftwidth=2
+	autocmd FileType javascript setlocal expandtab
 augroup END
 
 augroup filetype_cs
-    autocmd!
-    autocmd FileType cs setlocal tabstop=4
-    autocmd FileType cs setlocal shiftwidth=4
-    autocmd FileType cs setlocal expandtab
+	autocmd!
+	autocmd FileType cs setlocal tabstop=4
+	autocmd FileType cs setlocal shiftwidth=4
+	autocmd FileType cs setlocal expandtab
 augroup END
 
 augroup filetype_vue
-    autocmd!
-    autocmd BufNewFile,BufRead *.vue setf html
-    autocmd FileType javascript setlocal tabstop=2
-    autocmd FileType javascript setlocal shiftwidth=2
-    autocmd FileType javascript setlocal expandtab
+	autocmd!
+	autocmd BufNewFile,BufRead *.vue setf html
+	autocmd FileType javascript setlocal tabstop=2
+	autocmd FileType javascript setlocal shiftwidth=2
+	autocmd FileType javascript setlocal expandtab
 augroup END
 
 augroup filetype_xaml
-    autocmd!
-    autocmd BufNewFile,BufRead *.xaml setf xml
+	autocmd!
+	autocmd BufNewFile,BufRead *.xaml setf xml
 augroup END
 
 augroup filetype_gitcommit
-    autocmd!
-    autocmd FileType gitcommit setlocal spell
+	autocmd!
+	autocmd FileType gitcommit setlocal spell
 augroup END
 
 augroup filetype_notes
-    autocmd!
-    autocmd BufNewFile,BufRead notes.md setlocal spell
-    autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
+	autocmd!
+	autocmd BufNewFile,BufRead notes.md setlocal spell
+	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
 augroup END
