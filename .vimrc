@@ -49,6 +49,7 @@ call plug#begin('~/.vim/plugged')
 	let g:ale_fixers['javascript'] = ['eslint']
 	Plug 'SidOfc/mkdx'
 	let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
+	Plug 'leafOfTree/vim-vue-plugin'
 call plug#end()
 
 colorscheme gruvbox
@@ -80,10 +81,10 @@ augroup END
 
 augroup filetype_vue
 	autocmd!
-	autocmd BufNewFile,BufRead *.vue setf html
-	autocmd FileType javascript setlocal tabstop=2
-	autocmd FileType javascript setlocal shiftwidth=2
-	autocmd FileType javascript setlocal expandtab
+	autocmd BufNewFile,BufRead *.vue setf vue
+	autocmd FileType vue setlocal tabstop=2
+	autocmd FileType vue setlocal shiftwidth=2
+	autocmd FileType vue setlocal expandtab
 augroup END
 
 augroup filetype_xaml
