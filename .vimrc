@@ -46,6 +46,7 @@ call plug#begin('~/.vim/plugged')
 	let g:ale_linters = {
 	\ 'cs': ['OmniSharp']
 	\}
+	let g:ale_fixers['javascript'] = ['eslint']
 	Plug 'SidOfc/mkdx'
 	let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
 call plug#end()
