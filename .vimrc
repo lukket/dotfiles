@@ -33,27 +33,24 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline-themes'
 	let g:airline#extensions#tabline#enabled = 1
 	Plug 'morhetz/gruvbox'
-	Plug('tpope/vim-fugitive')
+	Plug 'tpope/vim-fugitive'
 	set shellslash
-	Plug('airblade/vim-gitgutter')
-	Plug('MTDL9/vim-log-highlighting')
-	Plug('junegunn/goyo.vim')
-	Plug('miyakogi/conoline.vim')
-	Plug('OmniSharp/omnisharp-vim')
+	Plug 'airblade/vim-gitgutter'
+	Plug 'MTDL9/vim-log-highlighting'
+	Plug 'junegunn/goyo.vim'
+	Plug 'miyakogi/conoline.vim'
+	Plug 'OmniSharp/omnisharp-vim'
 	let g:OmniSharp_server_stdio = 1
 	let g:OmniSharp_highlight_types = 2
-	Plug('dense-analysis/ale')
+	Plug 'dense-analysis/ale'
 	let g:ale_linters = {
 	\ 'cs': ['OmniSharp']
 	\}
-	Plug('jkramer/vim-checkbox')
-	let g:checkbox_states = [' ', '-', 'x']
+	Plug 'SidOfc/mkdx'
+	let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
 call plug#end()
 
 colorscheme gruvbox
-
-" Xaml
-au BufNewFile,BufRead *.xaml        setf xml
 
 nnoremap <space> <nop>
 nnoremap <leader>s :w<cr>
@@ -65,3 +62,30 @@ nnoremap <leader>ev :e $MYVIMRC<cr>
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
 
 inoremap jk <esc>
+
+augroup filetype_javascript
+    autocmd!
+    autocmd FileType javascript setlocal tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2
+    autocmd FileType javascript setlocal expandtab
+augroup END
+
+augroup filetype_cs
+    autocmd!
+    autocmd FileType cs setlocal tabstop=4
+    autocmd FileType cs setlocal shiftwidth=4
+    autocmd FileType cs setlocal expandtab
+augroup END
+
+augroup filetype_vue
+    autocmd!
+    autocmd BufNewFile,BufRead *.vue        setf html
+    autocmd FileType javascript setlocal tabstop=2
+    autocmd FileType javascript setlocal shiftwidth=2
+    autocmd FileType javascript setlocal expandtab
+augroup END
+
+augroup filetype_xaml
+    autocmd!
+    autocmd BufNewFile,BufRead *.xaml        setf xml
+augroup END
