@@ -31,7 +31,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'vim-airline/vim-airline'
 	let g:airline_powerline_fonts = 1
 	Plug 'vim-airline/vim-airline-themes'
-	let g:airline#extensions#tabline#enabled = 1
+"	let g:airline#extensions#tabline#enabled = 1
 	Plug 'morhetz/gruvbox'
 	Plug 'tpope/vim-fugitive'
 	set shellslash
@@ -43,10 +43,8 @@ call plug#begin('~/.vim/plugged')
 	let g:OmniSharp_server_stdio = 1
 	let g:OmniSharp_highlight_types = 2
 	Plug 'dense-analysis/ale'
-	let g:ale_linters = {
-	\ 'cs': ['OmniSharp']
-	\}
-	let g:ale_fixers['javascript'] = ['eslint']
+	let g:ale_linters = { 'cs': ['OmniSharp'] }
+	let g:ale_fixers = { 'javascript': ['eslint'] }
 	Plug 'SidOfc/mkdx'
 	let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
 	Plug 'leafOfTree/vim-vue-plugin'
