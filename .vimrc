@@ -70,6 +70,13 @@ augroup filetype_javascript
 	autocmd FileType javascript setlocal expandtab
 augroup END
 
+augroup filetype_yaml
+	autocmd!
+	autocmd FileType yaml setlocal tabstop=2
+	autocmd FileType yaml setlocal shiftwidth=2
+	autocmd FileType yaml setlocal expandtab
+augroup END
+
 augroup filetype_cs
 	autocmd!
 	autocmd FileType cs setlocal tabstop=4
@@ -99,6 +106,8 @@ augroup filetype_notes
 	autocmd!
 	autocmd BufNewFile,BufRead notes.md setlocal spell
 	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
+	autocmd BufNewFile,BufRead notes.md setlocal tabstop=2
+	autocmd BufNewFile,BufRead notes.md setlocal shiftwidth=2
 augroup END
 
 augroup filetype_changelog
