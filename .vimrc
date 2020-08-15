@@ -17,7 +17,14 @@ set incsearch " Search while typing
 set backspace=2
 set backupdir=~/.vim/backups
 set directory=~/.vim/backups
+set viewdir=~/.vim/views
 set background=dark
+set complete+=kspell
+" Change invisible characters
+set listchars=tab:▸\ ,eol:¬
+" Invisible character colors
+highlight NonText guifg=#4a4a59
+highlight SpecialKey guifg=#4a4a59
 
 let mapleader=" "
 let $LANG='en_US'
@@ -26,40 +33,45 @@ let $LANG='en_US'
 autocmd BufEnter * silent! lcd %:p:h
 
 call plug#begin('~/.vim/plugged')
-	Plug 'scrooloose/nerdtree'
-	map <C-n> :NERDTreeToggle<CR>
+	"Plug 'scrooloose/nerdtree'
+	"map <C-n> :NERDTreeToggle<CR>
 	Plug 'vim-airline/vim-airline'
 	let g:airline_powerline_fonts = 1
 	Plug 'vim-airline/vim-airline-themes'
-"	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#enabled = 1
+	let g:airline#extensions#tabline#tab_nr_type = 1
 	Plug 'morhetz/gruvbox'
 	Plug 'tpope/vim-fugitive'
+	Plug 'shumphrey/fugitive-gitlab.vim'
+	let g:fugitive_gitlab_domains = ['https://devlgitlab01.kg.local']
 	set shellslash
-	Plug 'airblade/vim-gitgutter'
+	"Plug 'airblade/vim-gitgutter'
 	Plug 'MTDL9/vim-log-highlighting'
-	Plug 'junegunn/goyo.vim'
-	Plug 'miyakogi/conoline.vim'
-	Plug 'OmniSharp/omnisharp-vim'
-	let g:OmniSharp_server_stdio = 1
-	let g:OmniSharp_highlight_types = 2
-	Plug 'dense-analysis/ale'
-	let g:ale_linters = { 'cs': ['OmniSharp'] }
-	let g:ale_fixers = { 'javascript': ['eslint'] }
-	Plug 'SidOfc/mkdx'
-	let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
+	"Plug 'junegunn/goyo.vim'
+	"Plug 'miyakogi/conoline.vim'
+	"Plug 'OmniSharp/omnisharp-vim'
+	"let g:OmniSharp_server_stdio = 1
+	"let g:OmniSharp_highlight_types = 2
+	"Plug 'dense-analysis/ale'
+	"let g:ale_linters = { 'cs': ['OmniSharp'] }
+	"let g:ale_fixers = { 'javascript': ['eslint'] }
+	"Plug 'SidOfc/mkdx'
+	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
 	Plug 'leafOfTree/vim-vue-plugin'
+	Plug 'masukomi/vim-markdown-folding'
+	Plug 'cespare/vim-toml'
 call plug#end()
 
 colorscheme gruvbox
 
 nnoremap <space> <nop>
 nnoremap <leader>s :w<cr>
-nnoremap <leader>- ddp
-nnoremap <leader>_ ddkP
-nnoremap <leader>sv :so $MYVIMRC<cr>
-nnoremap <leader>ev :e $MYVIMRC<cr>
 " Press F5 to delete all trailing whitespace
 nnoremap <silent> <F5> :let _s=@/ <Bar> :%s/\s\+$//e <Bar> :let @/=_s <Bar> :nohl <Bar> :unlet _s <CR>
+" Copy document to system clipboard
+nnoremap <leader>c :%y+<CR>
+
+nnoremap <leader>h :setlocal hlsearch!<CR>
 
 inoremap jk <esc>
 
@@ -68,6 +80,13 @@ augroup filetype_javascript
 	autocmd FileType javascript setlocal tabstop=2
 	autocmd FileType javascript setlocal shiftwidth=2
 	autocmd FileType javascript setlocal expandtab
+augroup END
+
+augroup filetype_json
+	autocmd!
+	autocmd FileType json setlocal tabstop=2
+	autocmd FileType json setlocal shiftwidth=2
+	autocmd FileType json setlocal expandtab
 augroup END
 
 augroup filetype_yaml
@@ -95,6 +114,9 @@ augroup END
 augroup filetype_xaml
 	autocmd!
 	autocmd BufNewFile,BufRead *.xaml setf xml
+	autocmd FileType xml setlocal tabstop=4
+	autocmd FileType xml setlocal shiftwidth=4
+	autocmd FileType xml setlocal expandtab
 augroup END
 
 augroup filetype_gitcommit
@@ -102,15 +124,24 @@ augroup filetype_gitcommit
 	autocmd FileType gitcommit setlocal spell
 augroup END
 
+augroup filetype_markdown
+	autocmd!
+	autocmd FileType markdown setlocal spell
+	autocmd FileType markdown setlocal tabstop=2
+	autocmd FileType markdown setlocal shiftwidth=2
+	autocmd FileType markdown setlocal conceallevel=2
+augroup END
+
 augroup filetype_notes
 	autocmd!
-	autocmd BufNewFile,BufRead notes.md setlocal spell
-	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de
-	autocmd BufNewFile,BufRead notes.md setlocal tabstop=2
-	autocmd BufNewFile,BufRead notes.md setlocal shiftwidth=2
+	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de,en
 augroup END
 
 augroup filetype_changelog
 	autocmd!
 	autocmd BufNewFile,BufRead CHANGELOG.md setlocal spell
 augroup END
+
+" Save and load views (e.g., folds) automatically
+autocmd BufWinLeave *.* mkview!
+autocmd BufWinEnter *.* silent loadview
