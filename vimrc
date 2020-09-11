@@ -131,6 +131,7 @@ augroup filetype_markdown
 	autocmd FileType markdown setlocal spell
 	autocmd FileType markdown setlocal tabstop=2
 	autocmd FileType markdown setlocal shiftwidth=2
+	autocmd FileType markdown setlocal expandtab
 	autocmd FileType markdown setlocal conceallevel=2
 augroup END
 
