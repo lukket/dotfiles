@@ -10,7 +10,7 @@ set wildmode=list:longest,full
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 set termencoding=utf-8
-set hlsearch " Highlight search results
+"set hlsearch " Highlight search results
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching, but do it smart
 set incsearch " Search while typing
