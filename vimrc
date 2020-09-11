@@ -43,7 +43,6 @@ call plug#begin('~/.vim/plugged')
 	Plug 'morhetz/gruvbox'
 	Plug 'tpope/vim-fugitive'
 	Plug 'shumphrey/fugitive-gitlab.vim'
-	let g:fugitive_gitlab_domains = ['https://devlgitlab01.kg.local']
 	set shellslash
 	"Plug 'airblade/vim-gitgutter'
 	Plug 'MTDL9/vim-log-highlighting'
