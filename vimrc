@@ -10,7 +10,7 @@ set wildmode=list:longest,full
 set encoding=utf-8  " The encoding displayed.
 set fileencoding=utf-8  " The encoding written to file.
 set termencoding=utf-8
-set hlsearch " Highlight search results
+"set hlsearch " Highlight search results
 set ignorecase " Ignore case when searching
 set smartcase " Ignore case when searching, but do it smart
 set incsearch " Search while typing
@@ -57,9 +57,11 @@ call plug#begin('~/.vim/plugged')
 	"let g:ale_fixers = { 'javascript': ['eslint'] }
 	"Plug 'SidOfc/mkdx'
 	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
-	Plug 'leafOfTree/vim-vue-plugin'
+	"Plug 'leafOfTree/vim-vue-plugin'
 	Plug 'masukomi/vim-markdown-folding'
 	Plug 'cespare/vim-toml'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'tpope/vim-cucumber'
 call plug#end()
 
 colorscheme gruvbox
@@ -129,7 +131,16 @@ augroup filetype_markdown
 	autocmd FileType markdown setlocal spell
 	autocmd FileType markdown setlocal tabstop=2
 	autocmd FileType markdown setlocal shiftwidth=2
+	autocmd FileType markdown setlocal expandtab
 	autocmd FileType markdown setlocal conceallevel=2
+augroup END
+
+augroup filetype_cucumber
+	autocmd!
+	autocmd FileType cucumber setlocal spell
+	autocmd FileType cucumber setlocal tabstop=2
+	autocmd FileType cucumber setlocal shiftwidth=2
+	autocmd FileType cucumber setlocal expandtab
 augroup END
 
 augroup filetype_notes
