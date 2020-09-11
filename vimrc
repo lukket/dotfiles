@@ -61,6 +61,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'masukomi/vim-markdown-folding'
 	Plug 'cespare/vim-toml'
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	Plug 'tpope/vim-cucumber'
 call plug#end()
 
 colorscheme gruvbox
@@ -131,6 +132,14 @@ augroup filetype_markdown
 	autocmd FileType markdown setlocal tabstop=2
 	autocmd FileType markdown setlocal shiftwidth=2
 	autocmd FileType markdown setlocal conceallevel=2
+augroup END
+
+augroup filetype_cucumber
+	autocmd!
+	autocmd FileType cucumber setlocal spell
+	autocmd FileType cucumber setlocal tabstop=2
+	autocmd FileType cucumber setlocal shiftwidth=2
+	autocmd FileType cucumber setlocal expandtab
 augroup END
 
 augroup filetype_notes
