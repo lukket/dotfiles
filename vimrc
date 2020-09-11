@@ -57,9 +57,10 @@ call plug#begin('~/.vim/plugged')
 	"let g:ale_fixers = { 'javascript': ['eslint'] }
 	"Plug 'SidOfc/mkdx'
 	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
-	Plug 'leafOfTree/vim-vue-plugin'
+	"Plug 'leafOfTree/vim-vue-plugin'
 	Plug 'masukomi/vim-markdown-folding'
 	Plug 'cespare/vim-toml'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme gruvbox
