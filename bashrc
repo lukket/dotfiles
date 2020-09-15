@@ -122,3 +122,8 @@ export PROMPT_DIRTRIM=2
 if [ -e $HOME/.proxyrc ]; then
     . $HOME/.proxyrc
 fi
+
+powerline-daemon -q
+POWERLINE_BASH_CONTINUATION=1
+POWERLINE_BASH_SELECT=1
+. ~/.local/lib/python3.6/site-packages/powerline/bindings/bash/powerline.sh
