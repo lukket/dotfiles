@@ -134,6 +134,12 @@ augroup filetype_markdown
 	autocmd FileType markdown setlocal conceallevel=2
 augroup END
 
+augroup filetype_html
+	autocmd!
+	autocmd FileType html setlocal tabstop=2
+	autocmd FileType html setlocal shiftwidth=2
+augroup END
+
 augroup filetype_cucumber
 	autocmd!
 	autocmd FileType cucumber setlocal spell
