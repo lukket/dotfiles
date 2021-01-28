@@ -58,9 +58,9 @@ call plug#begin('~/.vim/plugged')
 	"Plug 'SidOfc/mkdx'
 	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
 	"Plug 'leafOfTree/vim-vue-plugin'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'masukomi/vim-markdown-folding'
 	Plug 'cespare/vim-toml'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 	Plug 'tpope/vim-cucumber'
 call plug#end()
 
@@ -96,6 +96,7 @@ augroup filetype_yaml
 	autocmd FileType yaml setlocal tabstop=2
 	autocmd FileType yaml setlocal shiftwidth=2
 	autocmd FileType yaml setlocal expandtab
+	autocmd FileType yaml setlocal foldmethod=indent
 augroup END
 
 augroup filetype_cs
@@ -138,6 +139,7 @@ augroup END
 augroup filetype_cucumber
 	autocmd!
 	autocmd FileType cucumber setlocal spell
+	autocmd FileType cucumber setlocal spelllang=en,de
 	autocmd FileType cucumber setlocal tabstop=2
 	autocmd FileType cucumber setlocal shiftwidth=2
 	autocmd FileType cucumber setlocal expandtab
