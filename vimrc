@@ -33,35 +33,23 @@ let $LANG='en_US'
 autocmd BufEnter * silent! lcd %:p:h
 
 call plug#begin('~/.vim/plugged')
-	"Plug 'scrooloose/nerdtree'
-	"map <C-n> :NERDTreeToggle<CR>
 	Plug 'vim-airline/vim-airline'
 	let g:airline_powerline_fonts = 1
 	Plug 'vim-airline/vim-airline-themes'
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#tab_nr_type = 1
+	" Colorscheme
 	Plug 'morhetz/gruvbox'
+	" Git
 	Plug 'tpope/vim-fugitive'
 	Plug 'shumphrey/fugitive-gitlab.vim'
 	let g:fugitive_gitlab_domains = ['https://devlgitlab01.kg.local']
 	set shellslash
-	"Plug 'airblade/vim-gitgutter'
 	Plug 'MTDL9/vim-log-highlighting'
-	"Plug 'junegunn/goyo.vim'
-	"Plug 'miyakogi/conoline.vim'
-	"Plug 'OmniSharp/omnisharp-vim'
-	"let g:OmniSharp_server_stdio = 1
-	"let g:OmniSharp_highlight_types = 2
-	"Plug 'dense-analysis/ale'
-	"let g:ale_linters = { 'cs': ['OmniSharp'] }
-	"let g:ale_fixers = { 'javascript': ['eslint'] }
-	"Plug 'SidOfc/mkdx'
-	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
-	"Plug 'leafOfTree/vim-vue-plugin'
-	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'masukomi/vim-markdown-folding'
+	Plug 'mikeboiko/vim-markdown-folding'
 	Plug 'cespare/vim-toml'
 	Plug 'tpope/vim-cucumber'
+	Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 colorscheme gruvbox

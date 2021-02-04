@@ -17,6 +17,8 @@
 	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat -10
 	st = status
 	ci = commit
+	open = "!start $(git config remote.origin.url)"
+	browse = open
 
 [core]
 	autocrlf = input
