@@ -143,6 +143,7 @@ augroup END
 augroup filetype_cucumber
 	autocmd!
 	autocmd FileType cucumber setlocal spell
+	autocmd FileType cucumber setlocal spelllang=en,de
 	autocmd FileType cucumber setlocal tabstop=2
 	autocmd FileType cucumber setlocal shiftwidth=2
 	autocmd FileType cucumber setlocal expandtab
