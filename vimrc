@@ -45,11 +45,12 @@ call plug#begin('~/.vim/plugged')
 	Plug 'shumphrey/fugitive-gitlab.vim'
 	let g:fugitive_gitlab_domains = ['https://devlgitlab01.kg.local']
 	set shellslash
-	Plug 'MTDL9/vim-log-highlighting'
-	Plug 'mikeboiko/vim-markdown-folding'
-	Plug 'cespare/vim-toml'
-	Plug 'tpope/vim-cucumber'
+	" Autocomplete
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
+	" Syntax highlighting for almost every file type
+	Plug 'sheerun/vim-polyglot'
+	let g:markdown_folding = 1
+	let g:vim_markdown_new_list_item_indent = 0
 call plug#end()
 
 colorscheme gruvbox
@@ -136,6 +137,7 @@ augroup END
 augroup filetype_notes
 	autocmd!
 	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de,en
+	autocmd FileType markdown setlocal noexpandtab
 augroup END
 
 augroup filetype_changelog
