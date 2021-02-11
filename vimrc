@@ -40,6 +40,11 @@ call plug#begin('~/.vim/plugged')
 	let g:airline#extensions#tabline#tab_nr_type = 1
 	" Colorscheme
 	Plug 'morhetz/gruvbox'
+	Plug 'tyrannicaltoucan/vim-deep-space'
+	Plug 'tomasr/molokai'
+	Plug 'joshdick/onedark.vim'
+	Plug 'sonph/onehalf', {'rtp': 'vim/'}
+	Plug 'tomasiser/vim-code-dark'
 	" Git
 	Plug 'tpope/vim-fugitive'
 	Plug 'shumphrey/fugitive-gitlab.vim'
@@ -53,7 +58,7 @@ call plug#begin('~/.vim/plugged')
 	let g:vim_markdown_new_list_item_indent = 0
 call plug#end()
 
-colorscheme gruvbox
+colorscheme codedark
 
 nnoremap <space> <nop>
 nnoremap <leader>s :w<cr>
