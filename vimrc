@@ -33,37 +33,31 @@ let $LANG='en_US'
 autocmd BufEnter * silent! lcd %:p:h
 
 call plug#begin('~/.vim/plugged')
-	"Plug 'scrooloose/nerdtree'
-	"map <C-n> :NERDTreeToggle<CR>
 	Plug 'vim-airline/vim-airline'
 	let g:airline_powerline_fonts = 1
 	Plug 'vim-airline/vim-airline-themes'
 	let g:airline#extensions#tabline#enabled = 1
 	let g:airline#extensions#tabline#tab_nr_type = 1
+	" Colorscheme
 	Plug 'morhetz/gruvbox'
+	Plug 'tyrannicaltoucan/vim-deep-space'
+	Plug 'tomasr/molokai'
+	Plug 'joshdick/onedark.vim'
+	Plug 'sonph/onehalf', {'rtp': 'vim/'}
+	Plug 'tomasiser/vim-code-dark'
+	" Git
 	Plug 'tpope/vim-fugitive'
 	Plug 'shumphrey/fugitive-gitlab.vim'
 	set shellslash
-	"Plug 'airblade/vim-gitgutter'
-	Plug 'MTDL9/vim-log-highlighting'
-	"Plug 'junegunn/goyo.vim'
-	"Plug 'miyakogi/conoline.vim'
-	"Plug 'OmniSharp/omnisharp-vim'
-	"let g:OmniSharp_server_stdio = 1
-	"let g:OmniSharp_highlight_types = 2
-	"Plug 'dense-analysis/ale'
-	"let g:ale_linters = { 'cs': ['OmniSharp'] }
-	"let g:ale_fixers = { 'javascript': ['eslint'] }
-	"Plug 'SidOfc/mkdx'
-	"let g:mkdx#settings = { 'highlight': { 'enable': 1 }}
-	"Plug 'leafOfTree/vim-vue-plugin'
-	Plug 'masukomi/vim-markdown-folding'
-	Plug 'cespare/vim-toml'
+	" Autocomplete
 	Plug 'neoclide/coc.nvim', {'branch': 'release'}
-	Plug 'tpope/vim-cucumber'
+	" Syntax highlighting for almost every file type
+	Plug 'sheerun/vim-polyglot'
+	let g:markdown_folding = 1
+	let g:vim_markdown_new_list_item_indent = 0
 call plug#end()
 
-colorscheme gruvbox
+colorscheme codedark
 
 nnoremap <space> <nop>
 nnoremap <leader>s :w<cr>
@@ -95,6 +89,7 @@ augroup filetype_yaml
 	autocmd FileType yaml setlocal tabstop=2
 	autocmd FileType yaml setlocal shiftwidth=2
 	autocmd FileType yaml setlocal expandtab
+	autocmd FileType yaml setlocal foldmethod=indent
 augroup END
 
 augroup filetype_cs
@@ -152,6 +147,7 @@ augroup END
 augroup filetype_notes
 	autocmd!
 	autocmd BufNewFile,BufRead notes.md setlocal spelllang=de,en
+	autocmd FileType markdown setlocal noexpandtab
 augroup END
 
 augroup filetype_changelog

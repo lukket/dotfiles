@@ -1,0 +1,27 @@
+[user]
+	name = Lukas Kettenbach
+	email = lukas.kettenbach@kannegiesser.de
+
+[http "https://devlgitlab01.kg.local"]
+	sslCAInfo = ~/.ssl/devlgitlab01.kg.local.crt
+	sslCAPath = ~/.ssl/
+	sslVerify = true
+
+[credential "https://devlgitlab01.kg.local"]
+	username = lukas.kettenbach@kannegiesser.de
+
+[alias]
+	co = checkout
+	fe = fetch
+	ls = log --pretty=format:"%C(yellow)%h\\ %ad%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --date=short -10
+	ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat -10
+	lt = tag -l --sort=v:refname
+	st = status
+	ci = commit
+	open = "!start $(git config remote.origin.url)"
+	browse = open
+
+[core]
+	autocrlf = input
+	filemode = false
+	editor = vim
