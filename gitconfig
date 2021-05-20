@@ -1,15 +1,3 @@
-[user]
-	name = Lukas Kettenbach
-	email = lukas.kettenbach@kannegiesser.de
-
-[http "https://devlgitlab01.kg.local"]
-	sslCAInfo = ~/.ssl/devlgitlab01.kg.local.crt
-	sslCAPath = ~/.ssl/
-	sslVerify = true
-
-[credential "https://devlgitlab01.kg.local"]
-	username = lukas.kettenbach@kannegiesser.de
-
 [alias]
 	co = checkout
 	fe = fetch
@@ -20,8 +8,3 @@
 	ci = commit
 	open = "!start $(git config remote.origin.url)"
 	browse = open
-
-[core]
-	autocrlf = input
-	filemode = false
-	editor = vim
